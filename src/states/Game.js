@@ -19,6 +19,8 @@ export default class extends Phaser.State {
     banner.smoothed = false
     banner.anchor.setTo(0.5)
 
+    this.game.physics.startSystem(Phaser.Physics.P2JS)
+
     this.mushroom = new Mushroom({
       game: this.game,
       x: this.world.centerX,
