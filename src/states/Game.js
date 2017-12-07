@@ -1,6 +1,7 @@
 /* globals __DEV__ */
 import Phaser from 'phaser'
 import Mushroom from '../sprites/Mushroom'
+import Viejo from '../sprites/Viejo'
 
 export default class extends Phaser.State {
   init () {}
@@ -24,6 +25,7 @@ export default class extends Phaser.State {
     })
 
     this.game.add.existing(this.mushroom)
+    this.viejo = new Viejo(game, 200, 200)
   }
 
   render () {
