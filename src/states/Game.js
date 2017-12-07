@@ -1,6 +1,7 @@
 /* globals __DEV__ */
 import Phaser from 'phaser'
 import Mushroom from '../sprites/Mushroom'
+import Viejo from '../sprites/Viejo'
 
 export default class extends Phaser.State {
   init () {}
@@ -60,6 +61,8 @@ export default class extends Phaser.State {
   
       this.fireButton = this.input.keyboard.addKey(Phaser.KeyCode.SPACEBAR, () => console.log("hey"));
 
+
+    this.viejo = new Viejo(game, 200, 200)
 
   }
 
