@@ -1,7 +1,8 @@
 import { Sprite } from 'phaser'
+import ControlSet from './ControlSet'
 
 class Viejo extends Sprite {
-  constructor(game, x, y, pngsprite,despl) {
+  constructor(game, x, y, pngsprite,despl,control) {
     //super(game, x, y, 'rpg-maker-sprites', 54)
     super(game, x, y, pngsprite, 54)
     this.despl = despl
@@ -10,10 +11,12 @@ class Viejo extends Sprite {
     game.physics.arcade.enable(this)
     this.body.velocity.x = 10
 
+    this.control = control
+
 
     this.desplazamiento(despl) // Del 0 al 7
 
-    this.cursors = game.input.keyboard.createCursorKeys();
+    //this.cursors = game.input.keyboard.createCursorKeys();
     //  Creates 30 bullets, using the 'bullet' graphic
     this.weapon = this.game.add.weapon(30, 'bullet');
     //  The bullet will be automatically killed when it leaves the world bounds
@@ -46,7 +49,7 @@ class Viejo extends Sprite {
 
   update() {
     
-        if (this.cursors.up.isDown)
+        if (this.control.up.isDown)
         {
           //this.game.physics.arcade.accelerationFromRotation(this.rotation, 300, this.body.acceleration);
           this.body.velocity.y = -150
@@ -57,13 +60,13 @@ class Viejo extends Sprite {
           this.body.acceleration.set(0);
         }
     
-        if (this.cursors.left.isDown)
+        if (this.control.left.isDown)
         {
           //this.body.angularVelocity = -300;
           this.body.velocity.x = -150
           this.animations.play('left')
         }
-        else if (this.cursors.right.isDown)
+        else if (this.control.right.isDown)
         {
           //this.body.angularVelocity = 300;
           this.body.velocity.x = 150

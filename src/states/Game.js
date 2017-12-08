@@ -2,6 +2,7 @@
 import Phaser from 'phaser'
 import Mushroom from '../sprites/Mushroom'
 import Viejo from '../sprites/Viejo'
+import ControlSet from '../sprites/ControlSet'
 
 export default class extends Phaser.State {
   init () {}
@@ -57,8 +58,10 @@ export default class extends Phaser.State {
      
 
 
-    this.viejo = new Viejo(game, 200, 200,'rpg-maker-sprites',7)
-    new Viejo(game, 100, 200,'rpg-maker-sprites',6)
+      const cs1 = new ControlSet(game,'w','s','d','a','f')
+      const cs2 = new ControlSet(game,'up','down','right','left','NUMPAD_0')
+    this.viejo = new Viejo(game, 200, 200,'rpg-maker-sprites',7,cs1)
+    new Viejo(game, 100, 200,'rpg-maker-sprites',6,cs2)
 
   }
 
