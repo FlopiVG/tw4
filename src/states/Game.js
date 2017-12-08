@@ -57,8 +57,8 @@ export default class extends Phaser.State {
      
 
 
-    this.viejo = new Viejo(game, 200, 200)
-     new Viejo(game, 100, 200)
+    this.viejo = new Viejo(game, 200, 200,'rpg-maker-sprites',7)
+    new Viejo(game, 100, 200,'rpg-maker-sprites',6)
 
   }
 

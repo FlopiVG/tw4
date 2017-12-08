@@ -1,15 +1,17 @@
 import { Sprite } from 'phaser'
 
 class Viejo extends Sprite {
-  constructor(game, x, y) {
-    super(game, x, y, 'rpg-maker-sprites', 54)
+  constructor(game, x, y, pngsprite,despl) {
+    //super(game, x, y, 'rpg-maker-sprites', 54)
+    super(game, x, y, pngsprite, 54)
+    this.despl = despl
     this.game = game
     game.add.existing(this)
     game.physics.arcade.enable(this)
     this.body.velocity.x = 10
 
 
-    this.desplazamiento(6) // Del 0 al 7
+    this.desplazamiento(despl) // Del 0 al 7
 
     this.cursors = game.input.keyboard.createCursorKeys();
     //  Creates 30 bullets, using the 'bullet' graphic
@@ -29,17 +31,11 @@ class Viejo extends Sprite {
 
   desplazamiento(n) {
     if (n>3) {
-      /*this.animations.add('down', [54, 55, 56], 10, true)
-      this.animations.add('right', [78, 79, 80], 10, true)
-      this.animations.add('left', [66, 67, 68], 10, true)
-      this.animations.add('up', [90, 91, 92], 10, true)*/
       n = n-4
-      this.animations.add('down', [3*n* +4*12,       3*n +1+48,       3*n +2+48], 10, true)
-
-      this.animations.add('down', [3*n +48,       3*n +1+48,       3*n +2+48], 10, true)
-      this.animations.add('left', [3*n +12+48,   3*n +1 +12+48,   3*n +2 +12+48], 10, true)
-      this.animations.add('right',[3*n +12*2+48, 3*n +1 +12*2+48, 3*n +2 +12*2+48], 10, true)
-      this.animations.add('up',   [3*n +12*3+48, 3*n +1 +12*3+48, 3*n +2 +12*3+48], 10, true)
+      this.animations.add('down', [3*n +12*4, 3*n+1 +12*4, 3*n+2 + 12*4], 10, true)
+      this.animations.add('left', [3*n +12*5, 3*n+1 +12*5, 3*n+2 + 12*5], 10, true)
+      this.animations.add('right',[3*n +12*6, 3*n+1 +12*6, 3*n+2 + 12*6], 10, true)
+      this.animations.add('up',   [3*n +12*7, 3*n+1 +12*7, 3*n+2 + 12*7], 10, true)
     } else {
       this.animations.add('down', [3*n,       3*n +1,       3*n +2], 10, true)
       this.animations.add('left', [3*n +12,   3*n +1 +12,   3*n +2 +12], 10, true)
